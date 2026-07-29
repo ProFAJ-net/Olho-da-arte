@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olho da Arte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="marca-eyebrow">GALERIA DIGITAL</div>
+        <h1 class="titulo-principal">Olho da Arte</h1>
+        <p class="chamada-pulsante">cadastre-se agora para publicar suas obras de arte</p>
+    </header>
+
+    <main>
+        <section class="boas-vindas">
+            <h2 class="assinatura-luz">Bem-vindo ao Olho da Arte</h2>
+            <p class="subtitulo">Um espaço para artistas exporem seu trabalho e serem encontrados.</p>
+        </section>
+
+        <section class="cartao cadastro">
+            <h3>Cadastro &amp; Acesso</h3>
+            <form>
+                <label for="nome">Nome/Empresa</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="whatsapp">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" required>
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" minlength="6" required>
+
+                <div class="linha-botoes">
+                    <button type="submit" id="btn-cadastrar" class="botao-primario">Cadastrar</button>
+                    <button type="button" id="btn-entrar" class="botao-secundario">Já tenho conta</button>
+                </div>
+            </form>
+            <p id="mensagem-auth"></p>
+        </section>
+
+        <section class="cartao usuario-logado" style="display:none;">
+            <p id="saudacao"></p>
+            <button type="button" id="btn-sair" class="botao-secundario">Sair</button>
+        </section>
+
+        <section class="cartao galeria">
+            <h3>Galeria de Obras</h3>
+            <div class="opcoes-publicar">
+                <label for="arquivo" class="botao-secundario rotulo-arquivo">Selecionar da galeria</label>
+                <input type="file" id="arquivo" accept="image/*" hidden>
+
+                <button type="button" id="camera" class="botao-secundario">Usar câmera</button>
+                <button type="button" id="publicar" class="botao-primario">Publicar</button>
+            </div>
+
+            <div class="obras"></div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
