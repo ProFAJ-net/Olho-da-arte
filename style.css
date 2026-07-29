@@ -1,0 +1,308 @@
+/* ---------- Tokens ---------- */
+:root {
+    --fundo: #141110;
+    --fundo-cartao: #1d1917;
+    --fundo-cartao-alt: #241f1c;
+    --linha: #332c27;
+    --osso: #ede6db;
+    --osso-fraco: #a89e91;
+    --dourado: #c9924b;
+    --dourado-forte: #e0ac68;
+    --vinho: #7a2a2a;
+    --fonte-titulo: "Playfair Display", Georgia, serif;
+    --fonte-corpo: "Inter", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fundo);
+    background-image:
+        radial-gradient(circle at 15% 0%, rgba(201, 146, 75, 0.08), transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(122, 42, 42, 0.12), transparent 45%);
+    color: var(--osso);
+    font-family: var(--fonte-corpo);
+    margin: 0;
+    line-height: 1.5;
+}
+
+main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+    text-align: center;
+    padding: 64px 20px 48px;
+    border-bottom: 1px solid var(--linha);
+    margin-bottom: 48px;
+}
+
+.marca-eyebrow {
+    font-family: var(--fonte-corpo);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    color: var(--dourado);
+    margin-bottom: 14px;
+}
+
+.titulo-principal {
+    font-family: var(--fonte-titulo);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    margin: 0 0 18px;
+    letter-spacing: 0.01em;
+}
+
+/* Texto de chamada: animação contínua e sutil, como luz de vitrine */
+.chamada-pulsante {
+    display: inline-block;
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--dourado-forte);
+    margin: 0;
+    letter-spacing: 0.02em;
+    animation: pulsarLuz 2.6s ease-in-out infinite;
+}
+
+@keyframes pulsarLuz {
+    0%, 100% {
+        opacity: 0.65;
+        text-shadow: 0 0 6px rgba(224, 172, 104, 0.15);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 18px rgba(224, 172, 104, 0.55), 0 0 36px rgba(201, 146, 75, 0.25);
+    }
+}
+
+/* ---------- Boas-vindas / assinatura visual ---------- */
+.boas-vindas {
+    text-align: center;
+    padding: 12px 20px 56px;
+}
+
+.assinatura-luz {
+    font-family: var(--fonte-titulo);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin: 0 0 12px;
+    position: relative;
+    display: inline-block;
+}
+
+.assinatura-luz::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+    margin: 18px auto 0;
+    animation: respirarLinha 3.4s ease-in-out infinite;
+}
+
+@keyframes respirarLinha {
+    0%, 100% { width: 64px; opacity: 0.6; }
+    50% { width: 120px; opacity: 1; }
+}
+
+.subtitulo {
+    color: var(--osso-fraco);
+    font-size: 0.98rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* ---------- Cartões ---------- */
+.cartao {
+    background-color: var(--fundo-cartao);
+    border: 1px solid var(--linha);
+    margin: 0 0 28px;
+    padding: 28px 26px;
+    border-radius: 14px;
+}
+
+.cartao h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0 0 20px;
+    color: var(--osso);
+}
+
+/* ---------- Formulário ---------- */
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--osso-fraco);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    background-color: var(--fundo-cartao-alt);
+    color: var(--osso);
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+    font-family: var(--fonte-corpo);
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--dourado);
+    box-shadow: 0 0 0 3px rgba(201, 146, 75, 0.18);
+}
+
+.linha-botoes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ---------- Botões ---------- */
+button, .rotulo-arquivo {
+    font-family: var(--fonte-corpo);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.botao-primario {
+    background-color: var(--dourado);
+    color: #201a15;
+}
+
+.botao-primario:hover {
+    background-color: var(--dourado-forte);
+}
+
+.botao-secundario {
+    background-color: transparent;
+    color: var(--osso);
+    border-color: var(--linha);
+}
+
+.botao-secundario:hover {
+    border-color: var(--dourado);
+    color: var(--dourado-forte);
+}
+
+.rotulo-arquivo {
+    display: inline-block;
+}
+
+#mensagem-auth {
+    color: #e08a8a;
+    font-size: 14px;
+    margin: 14px 0 0;
+}
+
+/* ---------- Usuário logado ---------- */
+.usuario-logado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.usuario-logado p {
+    margin: 0;
+    color: var(--osso-fraco);
+}
+
+/* ---------- Galeria ---------- */
+.opcoes-publicar {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.obras {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 22px;
+}
+
+.obra {
+    background-color: var(--fundo-cartao-alt);
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.obra:hover {
+    transform: translateY(-4px);
+    border-color: var(--dourado);
+}
+
+.obra img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+}
+
+.obra .contato {
+    padding: 14px;
+}
+
+.obra .contato p {
+    margin: 0 0 10px;
+    font-family: var(--fonte-titulo);
+    font-size: 1.05rem;
+}
+
+.link-contato {
+    display: block;
+    color: var(--osso);
+    text-decoration: none;
+    background-color: rgba(237, 230, 219, 0.06);
+    border: 1px solid var(--linha);
+    padding: 8px 10px;
+    border-radius: 6px;
+    margin-top: 6px;
+    text-align: center;
+    font-size: 13px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.link-contato:hover {
+    border-color: var(--dourado);
+    color: var(--dourado-forte);
+}
+
+/* ---------- Acessibilidade ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .chamada-pulsante,
+    .assinatura-luz::after {
+        animation: none;
+        opacity: 1;
+    }
+              }
